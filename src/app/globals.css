@@ -13,7 +13,11 @@
     --foreground: #ededed;
   }
 }
-
+ @layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-10
+  }
+}
 html,
 body {
   scrollbar-width: none;

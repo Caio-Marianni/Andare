@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Estado inicial, com o tema padrão (pode ser 'light' ou 'dark')
+// Estado inicial ('light' ou 'dark')
 const initialState = {
   theme: 'light',
 };

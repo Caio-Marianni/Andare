@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTheme, toggleTheme } from "../../state/themeSlice";
-import { RootState } from "../../state/store";
+import { setTheme, toggleTheme } from "../../../state/themeSlice";
+import { RootState } from "../../../state/store";
 import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle: React.FC = () => {
@@ -32,11 +32,11 @@ const ThemeToggle: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <button onClick={handleToggleTheme}>
+    <button onClick={handleToggleTheme} className="bg-primary-200 rounded-full p-2 text-primary-300 hover:text-primary-600 hover:bg-primary-200 transition-all duration-300">
       {theme === "light" ? (
-        <Moon className="cursor-pointer text-secondary-200 hover:text-secondary-400 transition-all duration-300" size={24} />
+        <Moon size={24} />
       ) : (
-        <Sun className="cursor-pointer text-secondary-200 hover:text-secondary-400 transition-all duration-300" size={24} />
+        <Sun size={24} />
       )}
     </button>
   );

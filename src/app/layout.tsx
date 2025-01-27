@@ -1,7 +1,8 @@
-import React from 'react';
-import { Providers } from './providers';
+import React from "react";
+import { Providers } from "./providers";
 import "./globals.css";
-import { Metadata } from 'next';
+import { Metadata } from "next";
+import Navbar from "./components/Navbar";
 
 // SEO
 export const metadata: Metadata = {
@@ -9,13 +10,15 @@ export const metadata: Metadata = {
   description: "A Dashboard System to view the inventory and administrate the shop",
 };
 
-// Page structure                                                           
+// Page structure
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt">
-      <body className='bg-secondary-100 dark:bg-secondary-50 transition-all'>
-        <nav>teste aqui</nav>
-        <Providers>{children}</Providers>
+      <body className="h-screen bg-background dark:bg-background-dark transition-all">
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
         <footer></footer>
       </body>
     </html>

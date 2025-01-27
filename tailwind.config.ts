@@ -1,76 +1,67 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
-        text: {
-          50: "#04150a",
-          100: "#082b14",
-          200: "#105627",
-          300: "#18813b",
-          400: "#21ab4f",
-          500: "#29d663",
-          600: "#54de82",
-          700: "#7ee7a1",
-          800: "#a9efc0",
-          900: "#d4f7e0",
-          950: "#eafbef",
-        },
-        background: {
-          50: "#031608",
-          100: "#072c11",
-          200: "#0e5822",
-          300: "#158432",
-          400: "#1cb043",
-          500: "#22dd54",
-          600: "#4fe376",
-          700: "#7bea98",
-          800: "#a7f1bb",
-          900: "#d3f8dd",
-          950: "#e9fcee",
-        },
         primary: {
-          50: "#04150a",
-          100: "#082b14",
-          200: "#115529",
-          300: "#19803d",
-          400: "#22aa51",
-          500: "#2ad566",
-          600: "#55dd84",
-          700: "#7fe6a3",
-          800: "#aaeec2",
-          900: "#d4f7e0",
-          950: "#eafbf0",
+          50: "#f8f2e1", // Muito claro
+          100: "#f0e4bc", // Claro
+          200: "#e2d7b7", // Versão mais clara
+          300: "#d3c78f", // Mais suave
+          400: "#caaa81", // Bege principal
+          500: "#b18c6b", // Levemente mais escuro
+          600: "#a48d68", // Versão mais escura
+          700: "#8e7a56", // Escuro
+          800: "#7a6644", // Muito escuro
+          900: "#65533a", // Preto amarelado
         },
         secondary: {
-          50: "#041315",
-          100: "#09262a",
-          200: "#114c55",
-          300: "#1a727f",
-          400: "#2397a9",
-          500: "#2bbdd4",
-          600: "#56cadc",
-          700: "#80d8e5",
-          800: "#aae5ee",
-          900: "#d5f2f6",
-          950: "#eaf8fb",
+          50: "#e1f4fe", // Muito claro
+          100: "#bfe6fd", // Claro
+          200: "#85cefd", // Azul claro
+          300: "#69c0fd", // Mais suave
+          400: "#53b5fc", // Azul vibrante
+          500: "#3a97e5", // Levemente mais escuro
+          600: "#3695d3", // Azul mais escuro
+          700: "#2a75b2", // Escuro
+          800: "#1e5b91", // Muito escuro
+          900: "#154577", // Azul profundo
         },
         accent: {
-          50: "#040f15",
-          100: "#081d2b",
-          200: "#113b55",
-          300: "#195880",
-          400: "#2276aa",
-          500: "#2a93d5",
-          600: "#55a9dd",
-          700: "#7fbee6",
-          800: "#aad4ee",
-          900: "#d4e9f7",
-          950: "#eaf4fb",
+          50: "#2a3a47", // Muito claro
+          100: "#243544", // Versão mais clara
+          200: "#1f2e3c", // Mais suave
+          300: "#1a2835", // Cinza-azulado escuro
+          400: "#161e2b", // Escuro
+          500: "#10171f", // Versão mais escura
+          600: "#0c1215", // Muito escuro
+          700: "#0a0f13", // Profundo
+          800: "#080c11", // Intenso
+          900: "#060a0e", // Preto com um toque de cinza
         },
+        background: {
+          DEFAULT: "#f4f4f4", // Cor de fundo principal
+          dark: "#121212", // Fundo escuro (modo noturno)
+        },
+        text: {
+          DEFAULT: "#333333", // Texto principal
+          light: "#f1f1f1", // Texto claro
+          dark: "#ffffff", // Texto escuro (modo noturno)
+        },
+        border: {
+          DEFAULT: "#e0e0e0", // Bordas padrão
+          dark: "#303030", // Bordas no modo escuro
+        },
+      },
+      fontFamily: {
+        sans: ["Poppins", "Roboto", "sans-serif"],
       },
     },
   },
