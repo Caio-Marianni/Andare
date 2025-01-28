@@ -6,13 +6,13 @@
   --background: #ffffff;
   --foreground: #171717;
   font-size: 16px;
-  --margin-xxs : .25rem;  
-  --margin-xs : .5rem;  
-  --margin-s : .75rem;  
-  --margin-m : 1rem;  
-  --margin-l : 1.25rem;  
-  --margin-xl : 1.75rem;  
-  --margin-xxl : 2rem;  
+  --margin-xxs: 0.25rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 0.75rem;
+  --margin-m: 1rem;
+  --margin-l: 1.25rem;
+  --margin-xl: 1.75rem;
+  --margin-xxl: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,16 +21,16 @@
     --foreground: #ededed;
   }
 }
- @layer components {
+@layer components {
   .container {
-    @apply max-w-7xl mx-auto px-10
+    @apply max-w-7xl mx-auto px-10;
   }
 }
 html,
 body {
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background-image: url('../../public/noise.png');
+  background-image: url("../../public/noise.png");
   background-size: 200px 200px;
   background-position: 0 0;
   color: var(--foreground);
@@ -38,8 +38,7 @@ body {
 }
 
 .bg-hero {
-  background-image: url("/public/noise.png"),
-    linear-gradient(to right, #1e293b, #ffffff00);
+  background-image: url("/public/noise.png"), linear-gradient(to right, #1e293b, #ffffff00);
   background-size: cover;
   background-position: center;
 }
