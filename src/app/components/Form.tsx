@@ -1,6 +1,6 @@
 "use client";
 
-import { Baby, Bed, BedDouble, CalendarCheck, CalendarOff, LucidePlaneTakeoff, LucideUser, MapPin } from "lucide-react";
+import { Baby, BedDouble, CalendarCheck, CalendarOff, LucidePlaneTakeoff, LucideUser, MapPin } from "lucide-react";
 import React, { useState } from "react";
 
 const Form: React.FC = () => {
