@@ -63,6 +63,15 @@ const config: Config = {
       fontFamily: {
         sans: ["Poppins", "Roboto", "sans-serif"],
       },
+      spacing: {
+        xxs: "var(--margin-xxs)",
+        xs: "var(--margin-xs)",
+        s: "var(--margin-s)",
+        m: "var(--margin-m)",
+        l: "var(--margin-l)",
+        xl: "var(--margin-xl)",
+        xxl: "var(--margin-xxl)",
+      },
     },
   },
   plugins: [],
