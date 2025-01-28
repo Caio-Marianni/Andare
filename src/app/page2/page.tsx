@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
 
 export default function Dashboard() {
-  const dispatch = useDispatch();
 
   return (
     <div>
