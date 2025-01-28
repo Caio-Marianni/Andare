@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroWithRandomBackground: React.FC = () => {
+const Hero = () => {
   return (
     <div className="relative w-full h-[700px] bg-cover" style={{ backgroundImage: "url('./backgrounds/background1.webp')" }}>
       {/* Shadow */}
@@ -31,4 +31,4 @@ const HeroWithRandomBackground: React.FC = () => {
   );
 };
 
-export default HeroWithRandomBackground;
+export default Hero;
