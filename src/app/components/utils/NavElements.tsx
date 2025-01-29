@@ -19,7 +19,7 @@ const NavElements: React.FC<NavElementsProps> = ({ className }) => {
         <li key={item.label}>
           <a
             href={item.href}
-            className="text-neutral-200 hover:text-primary-500 transition-colors font-medium"
+            className="text-neutral-400 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-100 transition-colors font-medium"
           >
             {item.label}
           </a>

@@ -32,7 +32,7 @@ const ThemeToggle: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <button onClick={handleToggleTheme} className="bg-primary-200 rounded-full p-2 text-primary-300 hover:text-primary-600 hover:bg-primary-200 transition-all duration-300">
+    <button onClick={handleToggleTheme} className="rounded-full p-2 bg-blue-600 hover:bg-blue-800 transition-all duration-300">
       {theme === "light" ? (
         <Moon size={24} />
       ) : (

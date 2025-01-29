@@ -1,120 +1,156 @@
 "use client";
 
-import { Baby, BedDouble, CalendarDays, LucidePlaneTakeoff, LucideUser, MapPin } from "lucide-react";
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { Baby, BedDouble, LucidePlaneTakeoff, LucideUser, MapPin, CalendarDays, X } from "lucide-react";
+import { format } from "date-fns";
 
 const Form: React.FC = () => {
   const [destination, setDestination] = useState("");
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
   const [numRooms, setNumRooms] = useState(1);
-  const [departureDate, setDepartureDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
   const [origin, setOrigin] = useState("");
+  const [showCalendar, setShowCalendar] = useState(false);
 
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const [year, month, day] = dateString.split("-");
-    return `${day}/${month}/${year}`;
-  };
+  // Estado do calendário
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  // Referência para o calendário
+  const calendarRef = useRef<HTMLDivElement>(null);
+
+  // Fechar o calendário ao clicar fora dele
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
+        setShowCalendar(false);
+      }
+    };
+
+    if (showCalendar) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCalendar]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+
+    const formatDate = (date: Date) => format(date, "dd/MM/yyyy");
+
     const message =
-    `Olá, gostaria de saber mais sobre uma viagem para *${destination}*\n` +
-    `🛏️ Quantidade de quartos: *${numRooms}*\n` +
-    `▫️ Quantidade de adultos: *${numAdults}*\n` +
-    `▫️ Quantidade de crianças: *${numChildren}*\n` +
-    `📆 A viagem seria de *${origin}* para *${destination}*,\n` +
-    `🚩 com ida em *${formatDate(departureDate)}* e volta em *${formatDate(returnDate)}*.`;  
+      `Olá, gostaria de saber mais sobre uma viagem para *${destination}*\n` +
+      `🛏️ Quartos: *${numRooms}*\n` +
+      `▫️ Adultos: *${numAdults}*\n` +
+      `▫️ Crianças: *${numChildren}*\n` +
+      `📆 Viagem de *${origin}* para *${destination}*\n` +
+      `🚩 Ida: *${formatDate(dateRange[0].startDate)}*, Volta: *${formatDate(dateRange[0].endDate)}*`;
+
     const whatsappUrl = `https://api.whatsapp.com/send?phone=556296794984&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
 
   return (
-    <div className="relative h-auto sm:h-0 items-center justify-center flex">
-      <form onSubmit={handleSubmit} className="grid grid-cols-6 md:grid-cols-6 grid-rows-3 md:grid-rows-2 gap-2 container sm:mx-4 p-2 bg-amber-400 rounded-none sm:rounded-lg z-10 shadow-xl">
-        {/* 1 */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3 overflow-hidden">
+    <div className="relative h-auto sm:h-0 flex items-center justify-center">
+      <form onSubmit={handleSubmit} className="grid grid-cols-6 gap-2 container sm:mx-4 p-2 bg-secondary-500 rounded-lg shadow-xl z-10">
+        {/* Destino */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3">
           <MapPin size={24} color="black" />
           <input
-            placeholder="Para onde ?"
+            placeholder="Para onde?"
             type="text"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
-            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
+            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300 w-full"
           />
         </label>
-        {/* 2 */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3 col-start-4 overflow-hidden">
+
+        {/* Origem */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3">
           <LucidePlaneTakeoff size={24} color="black" />
           <input
-            placeholder="De onde ?"
+            placeholder="De onde?"
             type="text"
             value={origin}
             onChange={(e) => setOrigin(e.target.value)}
-            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
+            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300 w-full"
           />
-        </label>
-        {/* 3 */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md row-start-2 col-span-2 md:col-span-1">
-          <LucideUser size={24} color="black" />
-          <input
-            type="number"
-            value={numAdults}
-            onChange={(e) => setNumAdults(Number(e.target.value))}
-            min="1"
-            className="w-[90%] p-1 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
-          />
-        </label>
-        {/* 4 */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md row-start-2 col-span-2 md:col-span-1">
-          <Baby size={24} color="black" />
-          <input
-            type="number"
-            value={numChildren}
-            onChange={(e) => setNumChildren(Number(e.target.value))}
-            min="0"
-            className="w-[90%] p-1 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
-          />
-        </label>
-        {/* 5 */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md row-start-2 col-span-2 md:col-span-1">
-          <BedDouble size={24} color="black" />
-          <input
-            type="number"
-            value={numRooms}
-            onChange={(e) => setNumRooms(Number(e.target.value))}
-            min="1"
-            className="w-[90%] p-1 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
-          />
-        </label>
-        {/* 6 */}
-        <label className="flex items-center bg-white p-2 rounded-md col-span-4 md:col-span-2 md:col-start-4 row-start-3 md:row-start-2 overflow-hidden">
-          <CalendarDays size={24} color="black" />
-          <input
-            type="date"
-            value={departureDate}
-            onChange={(e) => setDepartureDate(e.target.value)}
-            className="pl-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300"
-          />
-          {/* Hidden calendar icon */}
-          <div className="relative">
-            <hr className="absolute -left-8 border-gray-500 border-2  rounded-3xl bg-white tranla z-10" />
-          </div>
-          <input
-            type="date"
-            value={returnDate}
-            onChange={(e) => setReturnDate(e.target.value)}
-            className="rounded-md border-none outline-none text-gray-600 placeholder-gray-300 -translate-x-5"
-          />
-          {/* Hidden calendar icon */}
-          <div className="relative ">
-            <hr className="absolute -left-8 border-none bg-white p-3 -translate-x-2 -translate-y-2 z-10" />
-          </div>
         </label>
 
-        <button type="submit" className="bg-blue-600 hover:bg-blue-800 px-4 py-2 rounded-md transition-all duration-300 col-span-2 col-start-5 row-start-3 md:row-start-2 md:col-start-6 md:col-span-1">
+        {/* Adultos */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-2 md:col-span-1">
+          <LucideUser size={24} color="black" />
+          <input type="number" value={numAdults} onChange={(e) => setNumAdults(Number(e.target.value))} min="1" className="w-full p-1 rounded-md border-none outline-none text-gray-600" />
+        </label>
+
+        {/* Crianças */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-2 md:col-span-1">
+          <Baby size={24} color="black" />
+          <input type="number" value={numChildren} onChange={(e) => setNumChildren(Number(e.target.value))} min="0" className="w-full p-1 rounded-md border-none outline-none text-gray-600" />
+        </label>
+
+        {/* Quartos */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-2 md:col-span-1">
+          <BedDouble size={24} color="black" />
+          <input type="number" value={numRooms} onChange={(e) => setNumRooms(Number(e.target.value))} min="1" className="w-full p-1 rounded-md border-none outline-none text-gray-600" />
+        </label>
+
+        {/* Seleção de Período - Calendário */}
+        <div className="relative col-span-4 md:col-span-2">
+          <button type="button" className="flex items-center bg-white p-4 rounded-md w-full text-gray-600" onClick={() => setShowCalendar(true)}>
+            <CalendarDays size={24} color="black" />
+            <span className="ml-2">
+              {format(dateRange[0].startDate, "dd/MM/yyyy")} - {format(dateRange[0].endDate, "dd/MM/yyyy")}
+            </span>
+          </button>
+
+          {/* Painel do Calendário */}
+          {showCalendar && (
+            <div ref={calendarRef} className="absolute top-full mt-4 z-50 bg-white shadow-lg rounded-lg p-2">
+              {/* Botão de Fechar */}
+              <div className="flex justify-end">
+                <button className="p-1 text-gray-600 hover:text-red-500 transition" onClick={() => setShowCalendar(false)}>
+                  <X size={20} />
+                </button>
+              </div>
+
+              <DateRange
+                editableDateInputs={false}
+                onChange={(item) =>
+                  setDateRange([
+                    {
+                      startDate: item.selection.startDate || new Date(),
+                      endDate: item.selection.endDate || new Date(),
+                      key: item.selection.key || "selection",
+                    },
+                  ])
+                }
+                moveRangeOnFirstSelection={false}
+                ranges={dateRange}
+                months={1}
+                direction="horizontal"
+                showMonthAndYearPickers={true} // Permite trocar o mês e o ano
+                className="border rounded-md"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Botão Enviar */}
+        <button type="submit" className="bg-blue-600 hover:bg-blue-800 px-4 py-2 rounded-md transition-all duration-300 col-span-2  md:col-span-1">
           Enviar
         </button>
       </form>
@@ -123,15 +159,3 @@ const Form: React.FC = () => {
 };
 
 export default Form;
-
-// <form onSubmit={handleSubmit}>
-//   <label>
-//     Destino:
-//     <input
-//       type="text"
-//       value={destination}
-//       onChange={(e) => setDestination(e.target.value)}
-//     />
-//   </label>
-//   <button type="submit">Enviar</button>
-// </form>
