@@ -27,7 +27,7 @@ export default function AboutMe() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-500 dark:text-gray-400">
           {services.map((service, index) => (
             <div key={index}>
-              <div className="p-4 bg-white dark:bg-dark-800 hover:-translate-y-1 transition-all duration-300 shadow-lg rounded-xl flex items-center gap-4">
+              <div className="min-h-20 p-4 bg-white dark:bg-dark-800 hover:-translate-y-1 transition-all duration-300 shadow-lg rounded-xl flex items-center gap-4">
                 {service.icon}
                 <span className="text-lg font-medium">{service.text}</span>
               </div>
