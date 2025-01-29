@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 import "./globals.css";
 import { Metadata } from "next";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // SEO
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <Navbar />
           <div>{children}</div>
-          <footer></footer>
+          <Footer />
         </Providers>
       </body>
     </html>
