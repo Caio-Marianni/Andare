@@ -10,7 +10,7 @@ const NavElements: React.FC<NavElementsProps> = ({ className }) => {
     { label: "Pacotes Nacionais", href: "#nacionais" },
     { label: "Cruzeiros", href: "#cruzeiros" },
     { label: "Grupo com Guia", href: "#grupo" },
-    { label: "Sobre Nós", href: "/sobre" },
+    { label: "Sobre Nós", href: "#about" },
   ];
 
   return (

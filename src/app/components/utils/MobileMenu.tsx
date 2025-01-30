@@ -1,13 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import NavElements from "./NavElements";
 
 interface MobileMenuProps {
   isOpen: boolean;
-  onClose: () => void; // Função para fechar o menu
+  onClose: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Fechar ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <div
+      ref={mobileMenuRef}
       className={`${
         isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       } xl:hidden block absolute top-18 left-0 w-full bg-light-500 dark:bg-dark-900 shadow-md transform transition-all duration-300 ease-in-out -z-40`}
