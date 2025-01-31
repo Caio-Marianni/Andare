@@ -29,7 +29,7 @@ const TravelCard: React.FC<TravelCardProps> = ({ travel, type }) => {
       <div className="relative group w-[255px] md:w-[276px] bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
         {/* Card Thumb */}
         <div className="relative cursor-pointer overflow-hidden" onClick={() => setShowModal(true)}>
-          <Image src={`/travel/${travel.image}`} alt={travel.title} width={320} height={200} className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105" />
+          <Image src={travel.image} alt={travel.title} width={320} height={200} className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105" />
 
           {/* Icon Overlay */}
           <div className="absolute flex items-center justify-center top-3 right-3 w-12 h-12 bg-blue-500 dark:bg-blue-600 shadow-md rounded-full border-2 border-white">

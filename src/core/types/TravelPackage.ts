@@ -1,6 +1,8 @@
+import { StaticImageData } from 'next/image';
+
 export default interface TravelPackage {
   id: number,
-  image: string,
+  image: StaticImageData,
   title: string,
   location: string,	
   departureLocation: string,

@@ -1,9 +1,23 @@
 import { TravelPackage } from "../types";
+import NordOne from "@/assets/travel/Nord-One.webp";
+import IconHotel from "@/assets/travel/Icon Hotel.webp";
+import Place2YouHotel from "@/assets/travel/Place2You-Hotel.webp";
+import MiniHotelDunas from "@/assets/travel/Mini-Hotel-Dunas.webp";
+import VilaJeriHotel from "@/assets/travel/Vila-Jeri-Hotel.webp";
+import EssenzaDuneHotel from "@/assets/travel/Essenza-Dune-Hotel.webp";
+import NauticomarResort from "@/assets/travel/Nauticomar-Resort.webp";
+import PortoCalemPraiaHotel from "@/assets/travel/Porto-Cálem-Praia-Hotel.webp";
+import NobileSuites from "@/assets/travel/Nobile-Suites.webp";
+import ComfortSuites from "@/assets/travel/Comfort-Suites.webp";
+import PousadaMarAtlantico from "@/assets/travel/Pousada-Mar-Atlântico.webp";
+import DolphinVillaHotel from "@/assets/travel/Dolphin-Villa-Hotel.webp";
+
+
 
 const pacotesNacionais: TravelPackage[] = [
   {
     id: 1,
-    image: "Nord-One.webp",
+    image: NordOne,
     title: "Nord One",
     location: "João Pessoa, PB",
     departureLocation: "Goiânia, GO",
@@ -16,7 +30,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 2,
-    image: "Icon Hotel.webp",
+    image: IconHotel,
     title: "Icon Hotel",
     location: "João Pessoa, PB",
     departureLocation: "Goiânia, GO",
@@ -29,7 +43,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 3,
-    image: "Place2You-Hotel.webp",
+    image: Place2YouHotel,
     title: "Place2You Hotel",
     location: "João Pessoa, PB",
     departureLocation: "Goiânia, GO",
@@ -42,7 +56,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 4,
-    image: "Mini-Hotel-Dunas.webp", // Atualizar com a imagem correta
+    image: MiniHotelDunas, 
     title: "Mini Hotel Dunas",
     location: "Jericoacoara, CE",
     departureLocation: "Goiânia, GO",
@@ -55,7 +69,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 5,
-    image: "Vila-Jeri-Hotel.webp", // Atualizar com a imagem correta
+    image: VilaJeriHotel, 
     title: "Vila Jeri Hotel",
     location: "Jericoacoara, CE",
     departureLocation: "Goiânia, GO",
@@ -68,7 +82,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 6,
-    image: "Essenza-Dune-Hotel.webp", // Atualizar com a imagem correta
+    image: EssenzaDuneHotel, 
     title: "Essenza Dune Hotel",
     location: "Jericoacoara, CE",
     departureLocation: "Goiânia, GO",
@@ -81,7 +95,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 7,
-    image: "Nauticomar-Resort.webp", // Atualizar com a imagem correta
+    image: NauticomarResort, 
     title: "Nauticomar Resort",
     location: "Porto Seguro, BA",
     departureLocation: "Goinia, GO",
@@ -94,7 +108,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 8,
-    image: "Porto-Cálem-Praia-Hotel.webp", // Atualizar com a imagem correta
+    image: PortoCalemPraiaHotel, 
     title: "Porto Cálem Praia Hotel",
     location: "Porto Seguro, BA",
     departureLocation: "Goiania, GO",
@@ -107,7 +121,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 9,
-    image: "Nobile-Suites.webp", // Atualizar com a imagem correta
+    image: NobileSuites, 
     title: "Nobile Suites",
     location: "Vitória, ES",
     departureLocation: "Goiânia, GO",
@@ -120,7 +134,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 10,
-    image: "Comfort Suites.webp", // Atualizar com a imagem correta
+    image: ComfortSuites, 
     title: "Comfort Suites",
     location: "Vitória, ES",
     departureLocation: "Goiânia, GO",
@@ -133,7 +147,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 11,
-    image: "Pousada Mar Atlântico.webp", // Atualizar com a imagem correta
+    image: PousadaMarAtlantico, 
     title: "Pousada Mar Atlântico",
     location: "Recife, PE",
     departureLocation: "Recife, PE",
@@ -152,7 +166,7 @@ const pacotesNacionais: TravelPackage[] = [
   },
   {
     id: 12,
-    image: "Dolphin Villa Hotel.webp", // Atualizar com a imagem correta
+    image: DolphinVillaHotel, 
     title: "Dolphin Villa Hotel",
     location: "Fernando de Noronha, PE",
     departureLocation: "Recife, PE",
