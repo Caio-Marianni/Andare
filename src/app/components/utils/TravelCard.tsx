@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { LucideCalendarDays, LucideMapPin, LucidePlane, LucideShip } from "lucide-react";
 import Modal from "./Modal";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface Travel {
   title: string;
   location: string;
-  image: string;
+  image: StaticImageData;
   departureLocation: string;
   days: number;
   fullPrice: number;

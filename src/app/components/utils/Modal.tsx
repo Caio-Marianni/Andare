@@ -1,11 +1,11 @@
 import { LucideX } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ModalProps {
   travel: {
     title: string;
     location: string;
-    image: string;
+    image: StaticImageData;
     departureLocation: string;
     days: number;
     fullPrice: number;
