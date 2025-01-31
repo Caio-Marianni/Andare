@@ -14,7 +14,7 @@ const services = [
 
 export default function AboutMe() {
   return (
-    <section id="about" className="bg-gray-100 dark:bg-gray-800 py-16 pt-28 transition-all duration-500">
+    <section id="about" className="bg-gray-100 dark:bg-gray-800 py-16 transition-all duration-500">
       <div className="container">
         {/* Header */}
         <div className="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100 max-w-5xl">

@@ -1,9 +1,13 @@
 import { TravelPackage } from "../types";
+import CostaDiadema from "@/assets/travel/Costa-Diadema.webp";
+import CostaPacifica from "@/assets/travel/Costa-Pacifica.webp";
+import CostaFavolosa from "@/assets/travel/Costa-Favolosa.webp";
+
 
 const OceanTravel: TravelPackage[] = [
   {
     id: 1,
-    image: "https://d3uaz35ue406d5.cloudfront.net/assets/images/compagnies/costa-croisieres/costa-diadema/activites/large/costa-diadema-0yqw25skdecba8vedxn3gh3hx8.webp",
+    image: CostaDiadema,
     title: "Costa Diadema",
     location: "8 regiões diferentes.",
     description: ["Santos, Salvador, Maceió, Ilha de Santiago, Santa Cruz de Tenerifem, Funchal, Cádis, Lisboa (Portugal)"],
@@ -16,7 +20,7 @@ const OceanTravel: TravelPackage[] = [
     type: "Econômica",
   },{
     id: 2,
-    image: "https://brasilturis.com.br/storage/2024/07/Piscina-Costa-Diadema-1000x640.jpg",
+    image: CostaPacifica,
     title: "Costa Pacifica",
     location: "10 regiões diferentes",
     description: ["Santos, Rio de Janeiro, Salvador, Maceió, Recife, Ilha de Santiago, Santa Cruz de Tenerifem, Lisboa, Cádis, Barcelona (Espanha)"],
@@ -29,7 +33,7 @@ const OceanTravel: TravelPackage[] = [
     type: "Econômica",
   },{
     id: 3,
-    image: "https://d3uaz35ue406d5.cloudfront.net/assets/images/compagnies/costa-croisieres/costa-favolosa/activites/large/costa-favolosa-0yqw25xxkqc4ybja5xn3gh3hx8.webp",
+    image: CostaFavolosa,
     title: "Costa Favolosa",
     location: "9 regiões diferentes",
     description: ["Rio de Janeiro, Recife, São Vicente, Las Palmas de Gran Canaria, Casablanca, Barcelona, Marselha, Savona (Italia)"],

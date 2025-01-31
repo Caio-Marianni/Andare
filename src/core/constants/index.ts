@@ -1,5 +1,5 @@
-import AirTravel from "./AirTravel"
-import OceanTravel from "./Oceantravel"
+import passagensAereas from "./passagensAereas"
+import cruzeiros from "./cruzeiros"
 import pacotesNacionais from "./pacotesNacionais"
 
-export { AirTravel, OceanTravel, pacotesNacionais }
+export { passagensAereas, cruzeiros, pacotesNacionais }

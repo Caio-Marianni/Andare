@@ -12,13 +12,13 @@ const Section: React.FC<SectionProps> = ({ title, description, data }) => {
   return (
     <section id={`${title}`}>
       {/* Title */}
-      <div className="bg-white w-full pt-32 pb-8 shadow-lg">
+      <div className="bg-white w-full py-5 shadow-lg">
         <h2 className="container text-2xl font-bold text-gray-800">{title}</h2>
         <h2 className="container text-gray-400 text-sm">{description}</h2>
       </div>
 
       {/* Cards */}
-      <div className="py-5 bg-gray-300 bg-opacity-50">
+      <div className="py-5 pb-14 bg-gray-300 bg-opacity-50">
         <div className="container flex flex-row flex-wrap justify-around gap-6 ">
           {data.map((travel, index) => (
             <TravelCard key={index} travel={travel} type="air" />
