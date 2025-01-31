@@ -5,11 +5,11 @@ interface NavElementsProps {
 const NavElements: React.FC<NavElementsProps> = ({ className }) => {
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "Passagens Aéreas", href: "#passagens" },
-    { label: "Pacotes Internacionais", href: "#internacionais" },
-    { label: "Pacotes Nacionais", href: "#nacionais" },
-    { label: "Cruzeiros", href: "#cruzeiros" },
-    { label: "Grupo com Guia", href: "#grupo" },
+    { label: "Passagens Aéreas", href: "#Passagens Aéreas" },
+    { label: "Pacotes Internacionais", href: "#Pacotes Internacionais" },
+    { label: "Pacotes Nacionais", href: "#Pacotes Nacionais" },
+    { label: "Cruzeiros", href: "#Cruzeiros" },
+    { label: "Grupo com Guia", href: "#Grupo com Guia" },
     { label: "Sobre Nós", href: "#about" },
   ];
 

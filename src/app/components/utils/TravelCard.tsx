@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { LucideCalendarDays, LucideMapPin, LucidePlane, LucidePlaneTakeoff, LucideShip, LucideShipWheel } from "lucide-react";
+import { LucideCalendarDays, LucideMapPin, LucidePlane, LucideShip } from "lucide-react";
 import Modal from "./Modal";
+import Image from "next/image";
 
 interface Travel {
   title: string;
@@ -25,55 +26,57 @@ const TravelCard: React.FC<TravelCardProps> = ({ travel, type }) => {
   return (
     <>
       {/* Card Container */}
-      <div className="w-60 lg:w-80 mt-2 hover:-translate-y-2 bg-white dark:bg-gray-800 hover:shadow-lg shadow-sm rounded-lg overflow-hidden border-2 border-slate-300 dark:border-slate-700 transition-all duration-500">
+      <div className="relative group w-[255px] md:w-[276px] bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
         {/* Card Thumb */}
-        <div className="relative" onClick={() => setShowModal(true)}>
-          <img src={travel.image} alt={travel.title} className="relative w-full h-48 object-cover" />
+        <div className="relative cursor-pointer overflow-hidden" onClick={() => setShowModal(true)}>
+          <Image src={`/travel/${travel.image}`} alt={travel.title} width={320} height={200} className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105" />
 
-          {/* Icon */}
-          <div className="absolute flex items-center justify-center top-3 right-3 w-10 h-10 bg-slate-800 shadow-md rounded-full border-2 border-slate-100">
-            {type === "ocean" ? <LucideShip size={20} className="text-white" /> : <LucidePlane size={20} className="text-white" />}
+          {/* Icon Overlay */}
+          <div className="absolute flex items-center justify-center top-3 right-3 w-12 h-12 bg-blue-500 dark:bg-blue-600 shadow-md rounded-full border-2 border-white">
+            {type === "ocean" ? <LucideShip size={24} className="text-white" /> : <LucidePlane size={24} className="text-white" />}
           </div>
 
-          {/* Shade */}
-          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full h-16"></div>
-
-          {/* Button */}
-          <button
-            className="absolute text-center shadow-md right-0 -translate-y-4 bg-blue-500 text-white px-4 py-1 rounded-s-full w-auto hover:bg-blue-600 transition"
-            onClick={() => setShowModal(true)}
-          >
-            ver +
-          </button>
+          {/* Overlay Gradient */}
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 to-transparent"></div>
         </div>
 
-        {/* Card Content / Header */}
-        <div className="flex flex-col justify-between items-start px-4 py-3 h-[240px]">
+        {/* View More Button */}
+        <button
+          className="absolute text-center shadow-md right-0 -translate-y-4 bg-blue-500 text-white px-5 py-2 rounded-s-full text-sm font-semibold hover:bg-blue-600 transition"
+          onClick={() => setShowModal(true)}
+        >
+          Ver +
+        </button>
+
+        {/* Card Content */}
+        <div className="px-4 py-2">
           {/* Title */}
           <div>
-            <h3 className="text-lg font-semibold">{travel.title}</h3>
-            <p className="flex items-center gap-1 text-gray-500 -translate-y-1">
-              <LucideMapPin size={15} /> {travel.location}
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{travel.title}</h3>
+            <p className="flex items-center gap-1 text-gray-500 text-sm">
+              <LucideMapPin size={16} /> {travel.location}
             </p>
           </div>
 
-          {/* Info */}
-          <div>
-            <p className="flex items-center gap-1 text-gray-500">
-              {type === "ocean" ? <LucideShipWheel size={18} /> : <LucidePlaneTakeoff size={18} />}
-              {travel.departureLocation}
-            </p>
-            <p className="flex items-center gap-1 text-gray-500">
-              <LucideCalendarDays size={18} />
+          {/* Travel Details */}
+          <div className="text-gray-500 text-sm mt-4">
+            <p className="flex items-center gap-1">
+              <LucideCalendarDays size={16} />
               {travel.days} dias
             </p>
+            <p className="flex items-center gap-1">
+              {type === "ocean" ? <LucideShip size={16} /> : <LucidePlane size={16} />}
+              {travel.departureLocation}
+            </p>
           </div>
 
-          {/* Price */}
-          <div>
-            <p className="text-sm text-gray-500 translate-y-1">Ida e volta por</p>
-            <p className="text-xl font-extrabold">A partir de R$ {travel.fullPrice}</p>
-            <p className="text-sm">em até x{travel.parcelTimes}</p>
+          {/* Price Details */}
+          <div className="border-t mt-3">
+            <p className="text-sm text-gray-500 mt-2">A partir de:</p>
+            <p className="text-xl font-bold text-gray-900 dark:text-white">
+              R$ {travel.fullPrice}
+              <span className="text-xs text-gray-500"> em até {travel.parcelTimes}x</span>
+            </p>
           </div>
         </div>
       </div>
@@ -85,13 +88,3 @@ const TravelCard: React.FC<TravelCardProps> = ({ travel, type }) => {
 };
 
 export default TravelCard;
-
-//How to use this component
-// import { AirTravel } from "@/core/constants/index"; 
-// import TravelCard from "./components/utils/TravelCard";
-
-// <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//   {AirTravel.map((travel, index) => (
-//     <TravelCard key={index} travel={travel} type={"air"} />
-//   ))}
-// </div>;
