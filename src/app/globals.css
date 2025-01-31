@@ -28,7 +28,7 @@
 }
 html,
 body {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-image: url("../../public/noise.png");

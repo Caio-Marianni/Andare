@@ -8,13 +8,16 @@ const Hero = () => {
       {/* Text */}
       <div className="relative container flex flex-col justify-center w-full h-full z-10 px-8">
         <h1 className="text-4xl md:text-5xl font-bold text-white">
-          Viaje sem dores de cabeça para
+          Viaje para onde e quando quiser
           <br />
-          <span className="text-secondary-500">onde</span> e{" "}
-          <span className="text-secondary-500">quando</span> quiser.
+          No seu tempo.
+          <br />
+          Do seu jeito.
+          {/* <span className="text-secondary-500">onde</span> e{" "}
+          <span className="text-secondary-500">quando</span> quiser. */}
         </h1>
         <p className="text-gray-400 text-sm md:text-base my-m mt-s">
-          Planejaremos sua próxima viagem de forma simples e eficiente.
+        Planejamos sua próxima viagem de forma simples e eficiente.
           <br />
           Descubra destinos incríveis e viaje com tranquilidade,
           <br />
@@ -24,7 +27,7 @@ const Hero = () => {
           href="https://wa.me/556296794984"
           className="w-36 text-center py-2 px-6 bg-blue-600 shadow-blue-900 rounded-lg shadow-md hover:bg-blue-800 hover:-translate-y-1 transition duration-300 ease-in-out text-white"
         >
-          Viage agora
+          Viaje agora
         </a>
       </div>
     </div>

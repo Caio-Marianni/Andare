@@ -66,18 +66,6 @@ const Form: React.FC = () => {
   return (
     <div className="relative h-auto sm:h-0 flex items-center justify-center">
       <form onSubmit={handleSubmit} className="grid grid-cols-6 gap-2 container sm:mx-4 p-2 bg-secondary-500 rounded-lg shadow-xl z-10">
-        {/* Destino */}
-        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3">
-          <MapPin size={24} color="black" />
-          <input
-            placeholder="Para onde?"
-            type="text"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300 w-full"
-          />
-        </label>
-
         {/* Origem */}
         <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3">
           <LucidePlaneTakeoff size={24} color="black" />
@@ -89,7 +77,19 @@ const Form: React.FC = () => {
             className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300 w-full"
           />
         </label>
-
+        
+        {/* Destino */}
+        <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-3">
+          <MapPin size={24} color="black" />
+          <input
+            placeholder="Para onde?"
+            type="text"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
+            className="p-2 rounded-md border-none outline-none text-gray-600 placeholder-gray-300 w-full"
+          />
+        </label>
+        
         {/* Adultos */}
         <label className="flex gap-1 items-center bg-white p-2 rounded-md col-span-2 md:col-span-1">
           <LucideUser size={24} color="black" />

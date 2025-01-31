@@ -1,12 +1,14 @@
-import { LucideCar, LucideGlobe, LucideHotel, LucidePlane, LucideShip, LucideTheater } from "lucide-react";
+import { LucideCar, LucideGlobe, LucideHotel, LucidePlane, LucideShip, LucideTheater, LucideTicketsPlane } from "lucide-react";
 import React from "react";
 
 const services = [
   { icon: <LucidePlane size={24} />, text: "Passagens Aéreas" },
+  { icon: <LucideTicketsPlane size={24} />, text: "Pacotes Nacionais" },
+  { icon: <LucideGlobe size={24} />, text: "Pacotes Internacionais" },
   { icon: <LucideShip size={24} />, text: "Cruzeiros" },
   { icon: <LucideCar size={24} />, text: "Locação de Veículos" },
   { icon: <LucideHotel size={24} />, text: "Reserva de Hotéis" },
-  { icon: <LucideGlobe size={24} />, text: "Pacotes de Lazer" },
+  // { icon: <LucideGlobe size={24} />, text: "Pacotes de Lazer" },
   { icon: <LucideTheater size={24} />, text: "Tickets para Shows e Eventos" },
 ];
 
@@ -36,7 +38,7 @@ export default function AboutMe() {
         </div>
 
         {/* Mission */}
-        <div className="mt-12 max-w-4xl">
+        <div className="mt-12 max-w-5xl">
           <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Nossa Missão</h3>
           <p className="text-lg leading-relaxed text-gray-500 dark:text-gray-400">
             Levar nossos clientes para os melhores destinos do Brasil e do mundo, proporcionando um serviço personalizado, ágil e de qualidade. Queremos superar expectativas e garantir tranquilidade e
