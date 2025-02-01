@@ -4,7 +4,7 @@ interface NavElementsProps {
 
 const NavElements: React.FC<NavElementsProps> = ({ className }) => {
   const menuItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "#home" },
     { label: "Passagens Aéreas", href: "#Passagens Aéreas" },
     { label: "Pacotes Internacionais", href: "#Pacotes Internacionais" },
     { label: "Pacotes Nacionais", href: "#Pacotes Nacionais" },

@@ -8,7 +8,6 @@ const services = [
   { icon: <LucideShip size={24} />, text: "Cruzeiros" },
   { icon: <LucideCar size={24} />, text: "Locação de Veículos" },
   { icon: <LucideHotel size={24} />, text: "Reserva de Hotéis" },
-  // { icon: <LucideGlobe size={24} />, text: "Pacotes de Lazer" },
   { icon: <LucideTheater size={24} />, text: "Tickets para Shows e Eventos" },
 ];
 

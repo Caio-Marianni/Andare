@@ -2,8 +2,9 @@
 import AboutMe from './components/AboutMe';
 import Form from './components/Form';
 import Hero from './components/Hero';
+import PassagensAereas from './components/PassagensAereas';
 import Section from './components/Section';
-import { passagensAereas, pacotesNacionais, cruzeiros } from "@/core/constants/index";
+import { pacotesNacionais, cruzeiros } from "@/core/constants/index";
 
 
 export default function HomePage() {
@@ -12,8 +13,8 @@ export default function HomePage() {
       <Hero />
       <Form />
       {/* Random div */}
-      <div className="bg-white w-full pt-20"></div>
-      <Section title="Passagens Aéreas" description='Vamos conhecer o mundo, basta ecolher onde' data={passagensAereas} />
+      <div className="bg-white dark:bg-gray-800 w-full pt-20"></div>
+      <PassagensAereas />
       {/* <Section title="Pacotes Internacionais" data={pacotesInternacionais} /> */}
       <Section title="Pacotes Nacionais" description='Vamos conhecer as maravilhas do nosso pais' data={pacotesNacionais} />
       <Section title="Cruzeiros" description='Que tal navegar um pouco, basta escolher o navio' data={cruzeiros} />

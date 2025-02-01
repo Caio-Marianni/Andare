@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ travel, onClose }) => {
 
         {/* Modal Image */}
         <Image
-          src={`/travel/${travel.image}`}
+          src={travel.image}
           alt={travel.title}
           width={320}
           height={200}
