@@ -44,7 +44,7 @@ export default function PassagensAereas() {
                 {/* Price Details */}
                 <div className="border-t mt-3">
                   <button className="w-full text-sm text-white-500 mt-2 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 shadow-md">
-                    ver orcarmentos
+                    ver orçarmentos
                   </button>
                 </div>
               </div>
