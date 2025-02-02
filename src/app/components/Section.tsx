@@ -20,7 +20,7 @@ const Section: React.FC<SectionProps> = ({ title, description, data }) => {
 
       {/* Cards */}
       <div className="py-5 pb-14 bg-gray-300 dark:bg-gray-950 bg-opacity-50 dark:bg-opacity-80">
-        <div className="container flex flex-row flex-wrap justify-around gap-6 ">
+        <div className="container flex flex-row flex-wrap items-center justify-around gap-6 ">
           {data.map((travel, index) => (
             <TravelCard key={index} travel={travel} type="air" />
           ))}
