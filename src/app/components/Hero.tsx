@@ -2,7 +2,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative top-8 sm:top-0 w-full h-[600px] bg-cover" style={{ backgroundImage: "url('./backgrounds/background1.webp')" }}>
+    <div  className="relative top-8 sm:top-0 w-full h-[600px] bg-cover bg-[url('/backgrounds/background1.webp')] 
+    bg-[position:-350px] md:bg-[position:-250px] lg:bg-[position:0px]">
       {/* Shadow */}
       <div className="absolute w-full h-full bg-gradient-to-r from-slate-900 to-[#ffffff00]"></div>
       {/* Text */}
