@@ -13,7 +13,7 @@ export default function HomePage() {
       <Hero />
       <Form />
       {/* Random div */}
-      <div className="bg-white dark:bg-gray-800 w-full pt-20"></div>
+      <div className="bg-white dark:bg-gray-800 w-full pt-5 md:pt-20"></div>
       <PassagensAereas />
       <Section title="Pacotes Internacionais" description='Que tal conhecer uma terra nova? basta escolher o seu destino!' data={pacotesInternacionais} />
       <Section title="Pacotes Nacionais" description='Vamos conhecer as maravilhas do nosso país' data={pacotesNacionais} />

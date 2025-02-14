@@ -1,5 +1,6 @@
 import { LucideX } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import ReactDOM from "react-dom";
 
 interface ModalProps {
   travel: {
@@ -17,7 +18,7 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ travel, onClose }) => {
-  return (
+  return  ReactDOM.createPortal (
     <div className="fixed inset-0 flex justify-center items-center z-50">
       {/* Background Overlay */}
       <div onClick={onClose} className="absolute bg-black bg-opacity-60 w-screen h-screen"></div>
@@ -59,7 +60,8 @@ const Modal: React.FC<ModalProps> = ({ travel, onClose }) => {
           </li>
         </ul>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
